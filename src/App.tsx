@@ -6,11 +6,10 @@ function App() {
 
   let [count, setCount] = useState(0)
   const inc = () => {
-    ++count;
     if(count === 5) {
       setCount(5)
     }
-    setCount(count)
+    setCount(prevCount => prevCount + 1)
   }
 
   const res = () => {

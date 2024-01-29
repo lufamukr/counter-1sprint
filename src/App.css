@@ -24,17 +24,21 @@
   background-color: black;
 }
 
+.border {
+  border: 2px solid teal;
+  border-radius: 5px;
+}
+
+.color_for_max {
+  color: red;
+}
+
 button {
   padding: 0 15px;
   font-size: 16px;
   font-weight: 700;
   cursor:pointer;
   background-color: teal;
-}
-
-.border {
-  border: 2px solid teal;
-  border-radius: 5px;
 }
 
 

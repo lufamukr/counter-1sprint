@@ -1,14 +1,10 @@
 # Getting Started with Create React App
 
-![Logo](./src/img/spacechess.svg)
+<div style="display: flex; justify-content: space-between;">
+  ![Logo](./src/img/spacechess.svg)
 
-<img src="./src/img/chessspace.svg" alt="Опис зображення" style="width: 300px; height: 300px;">
+  <h1>Exploration</h1>
 
-<h1>Exploration</h1>
+  <img src="./src/img/chessspace.svg" alt="expl-on" style="width: 300px; height: 300px;">
+</div>
 
-<style>
-  * {
-    text-align: center;
-    font-size: 36px;
-  }
-</style>

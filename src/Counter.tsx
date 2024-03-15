@@ -6,22 +6,22 @@ type CounterProps = {
   res: () => void;
 }
 
-export function Counter({num, inc, res}: CounterProps) {
+export function Counter(props: CounterProps) {
 
-  const disabledForFive = () => { return num === 5 }
-  const disabledForZero = () => { return num === 0 }
+  const disabledForFive = () => { return props.num === 5 }
+  const disabledForZero = () => { return props.num === 0 }
   const changeClassBoxNumber = () => {
-    return num === 5 ? 'box-number border color_for_max' : 'box-number border'
+    return props.num === 5 ? 'box-number border color_for_max' : 'box-number border'
   }
 
   return(
     <div className='box border'>
       <div className= {changeClassBoxNumber()}>
-        {num}
+        {props.num}
       </div>
       <div className='box-btn border'>
-        <button className='border' onClick={inc} disabled={disabledForFive()}>inc</button>
-        <button className='border' onClick={res} disabled={disabledForZero()}>reset</button>
+        <button className='border' onClick={props.inc} disabled={disabledForFive()}>inc</button>
+        <button className='border' onClick={props.res} disabled={disabledForZero()}>reset</button>
       </div>
     </div>
   )

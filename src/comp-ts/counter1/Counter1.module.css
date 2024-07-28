@@ -18,3 +18,10 @@
   font-size: 40px;
   font-weight: 700;
 }
+
+.boxBtn {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: black;
+}

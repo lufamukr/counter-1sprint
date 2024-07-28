@@ -3,7 +3,7 @@ import st from "./Skeleton.module.css";
 
 type SkeletonType = {
   num: number;
-  classTitle: string;
+  classTitle?: string;
   children?: ReactNode;
 };
 

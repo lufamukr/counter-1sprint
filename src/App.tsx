@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Counter1 } from "./comp-ts/counter1/Counter1";
+import { CounterSett } from "./comp-ts/counterSett/CounterSett";
 
 function App() {
+
+  //Counter1 - start
   let [counter1, setCounter1] = useState(0);
   const inc = () => {
     setCounter1((prevCount) => prevCount + 1);
@@ -13,10 +16,17 @@ function App() {
   const res = () => {
     setCounter1(0);
   };
+  //Counter1 - end
+
+  //CounterSetting - start
+
+  //CounterSetting - end
+
 
   return (
     <div className="App">
       <Counter1 num={counter1} inc={inc} res={res} />
+      <CounterSett num={counter1} />
     </div>
   );
 }

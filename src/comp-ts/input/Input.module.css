@@ -1,0 +1,11 @@
+
+.cover {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.input {
+  height: 10px;
+  width: 10px;
+}

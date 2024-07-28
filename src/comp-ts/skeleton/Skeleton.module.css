@@ -18,13 +18,3 @@
   background-color: black;
 }
 
-.boxNumber {
-  height: 60%;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: teal;
-  font-size: 40px;
-  font-weight: 700;
-}

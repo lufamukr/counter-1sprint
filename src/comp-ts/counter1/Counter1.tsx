@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Skeleton } from "../skeleton/Skeleton";
 import { Button } from "../button/Button";
 import st from "./Counter1.module.css"
@@ -15,7 +15,7 @@ export const Counter1 = (props:Counter1Type) => {
 
   return(
     <Skeleton num={props.num} classTitle={changeClassBoxNumber}>
-        <Button title="inc" onClick={props.inc}/>
+        <Button title="inc" onClick={props.inc} />
         <Button title="res" onClick={props.res}/>
     </Skeleton>
   )

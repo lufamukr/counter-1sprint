@@ -1,0 +1,30 @@
+
+.box {
+  height: 140px;
+  width: 170px;
+  padding: 10px;
+  background-color: black;
+}
+
+.border {
+  border: 2px solid teal;
+  border-radius: 5px;
+}
+
+.boxBtn {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: black;
+}
+
+.boxNumber {
+  height: 60%;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: teal;
+  font-size: 40px;
+  font-weight: 700;
+}

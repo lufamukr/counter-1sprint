@@ -1,24 +1,22 @@
-import React, { useState } from 'react';
-import './App.css';
-import { Counter } from './Counter';
+import React, { useState } from "react";
+import { Counter1 } from "./comp-ts/counter1/Counter1";
 
 function App() {
-
-  let [count, setCount] = useState(0)
+  let [counter1, setCounter1] = useState(0);
   const inc = () => {
-    if(count === 5) {
-      setCount(5)
+    setCounter1((prevCount) => prevCount + 1);
+    if (counter1 === 5) {
+      setCounter1(5);
     }
-    setCount(prevCount => prevCount + 1)
-  }
+  };
 
   const res = () => {
-    setCount(0)
-  }
+    setCounter1(0);
+  };
 
   return (
     <div className="App">
-      <Counter num = {count} inc = {inc} res = {res}/>
+      <Counter1 num={counter1} inc={inc} res={res} />
     </div>
   );
 }

@@ -25,8 +25,8 @@ function App() {
 
   return (
     <div className="App">
-      <Counter1 num={counter1} inc={inc} res={res} />
-      <CounterSett num={counter1} />
+      <Counter1 num={counter1} inc={inc} res={res} trigger={"counter1"}/>
+      <CounterSett trigger={"some else"}/>
     </div>
   );
 }

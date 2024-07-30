@@ -5,12 +5,12 @@ import { Button } from "../button/Button";
 import { Input } from "../input/Input";
 
 type CounterSettType = {
-
+  firstChild: ReactNode;
+  doubleChild: ReactNode;
 }
 
 export const CounterSett = (props:CounterSettType) => {
   return(
-    <Skeleton firstChild={<div>1</div>} doubleChild={<div>2</div>}>
-    </Skeleton>
+    <Skeleton firstChild={props.firstChild} doubleChild={props.doubleChild}/>
   )
 }

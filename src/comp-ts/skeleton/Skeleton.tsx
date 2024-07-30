@@ -2,12 +2,10 @@ import React, { ReactNode } from "react";
 import st from "./Skeleton.module.css";
 import { Input } from "../input/Input";
 
-export type SkeletonType = {
+type SkeletonType = {
   firstChild: ReactNode;
   doubleChild: ReactNode;
 };
-
-
 
 export const Skeleton = (props: SkeletonType) => {
 

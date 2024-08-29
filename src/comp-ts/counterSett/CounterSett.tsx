@@ -8,6 +8,6 @@ type CounterSettType = {
 
 export const CounterSett = (props:CounterSettType) => {
   return(
-    <Skeleton firstChild={props.firstChild} doubleChild={props.doubleChild}/>
+    <Skeleton firstChild={props.firstChild} doubleChild={props.doubleChild} needStyle="sett"/>
   )
 }

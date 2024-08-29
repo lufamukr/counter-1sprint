@@ -14,7 +14,7 @@ export const Counter1 = (props:Counter1Type) => {
   const changeClassBoxNumber = props.num === 5 ? `${st.boxNumber} ${st.border} ${st.color_for_max}` : `${st.boxNumber} ${st.border}`;
 
   return(
-    <Skeleton firstChild={props.firstChild} doubleChild={props.doubleChild}/>
+    <Skeleton firstChild={props.firstChild} doubleChild={props.doubleChild} needStyle="count"/>
 
   )
 }

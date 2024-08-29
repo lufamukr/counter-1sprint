@@ -22,7 +22,7 @@ export default meta;
 
 export const SkeletonDef = () => {
   return(
-    <Skeleton firstChild={<div>1</div>} doubleChild={<div style={{"color": "white"}}>2</div>}/>
+    <Skeleton firstChild={<div>1</div>} doubleChild={<div style={{"color": "white"}}>2</div>} needStyle="count"/>
   )
 }
 

@@ -18,7 +18,7 @@
   background-color: black;
 }
 
-.boxNumber {
+.boxNumber, .settBoxNumber {
   height: 60%;
   margin-bottom: 10px;
   display: flex;
@@ -27,5 +27,9 @@
   background-color: teal;
   font-size: 40px;
   font-weight: 700;
+}
+
+.settBoxNumber {
+  flex-direction: column;
 }
 

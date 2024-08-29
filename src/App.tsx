@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Counter1 } from "./comp-ts/counter1/Counter1";
 import { CounterSett } from "./comp-ts/counterSett/CounterSett";
+import "./App.css";
+import { Input } from "./comp-ts/input/Input";
+import { Button } from "./comp-ts/button/Button";
 
 function App() {
-
   //Counter1 - start
   let [counter1, setCounter1] = useState(0);
   const inc = () => {
@@ -22,11 +24,26 @@ function App() {
 
   //CounterSetting - end
 
-
   return (
-    <div className="App">
-      <Counter1 firstChild={<div>1</div>} doubleChild={<div>2</div>}/>
-      <CounterSett firstChild={<div>1</div>} doubleChild={<div>2</div>}/>
+    <div className="appWrapper">
+      <CounterSett
+        firstChild={
+          <>
+            <Input text="max value:" />
+            <Input text="start value:" />
+          </>
+        }
+        doubleChild={<Button title="set" onClick={() => {}} />}
+      />
+      <Counter1
+        firstChild={<div>1</div>}
+        doubleChild={
+          <>
+            <Button title="inc" onClick={() => {}} />
+            <Button title="reset" onClick={() => {}} />
+          </>
+        }
+      />
     </div>
   );
 }

@@ -1,11 +1,12 @@
 
 .cover {
+  width: 100%;
+  font-size: 20px;
   display: flex;
-  justify-content: space-between;
-  color: white;
+  gap: 5px;
 }
 
 .input {
-  height: 10px;
-  width: 10px;
+  width: 15px;
 }
+

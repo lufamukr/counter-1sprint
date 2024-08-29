@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import st from "./Skeleton.module.css";
-import { Input } from "../input/Input";
+
 
 type SkeletonType = {
   firstChild: ReactNode;

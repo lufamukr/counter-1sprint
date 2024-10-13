@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, InputHTMLAttributes, useState } from "react";
 import { Counter1 } from "./comp-ts/counter1/Counter1";
 import { CounterSett } from "./comp-ts/counterSett/CounterSett";
 import "./App.css";
 import { Input } from "./comp-ts/input/Input";
 import { Button } from "./comp-ts/button/Button";
+import { number } from "prop-types";
 
 function App() {
+  const [trigger, setTrigger] = useState(false);
   //Counter1 - start
   let [counter1, setCounter1] = useState(0);
   const inc = () => {
@@ -18,29 +20,52 @@ function App() {
   const res = () => {
     setCounter1(0);
   };
-  //Counter1 - end
 
-  //CounterSetting - start
+  const counterOne = counter1 === 5 ? "counterOneRed" : "counterOne";
 
-  //CounterSetting - end
+  const [maxValue, setMaxValue] = useState(0)
+  const [startValue, setStartValue] = useState(0)
 
-  return (
+  const changeMaxValue = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(e.target.value)
+    setMaxValue(value)
+  }
+
+  const changeStartValue = () => {
+
+  }
+
+  return trigger ? (
+    <CounterSett
+      firstChild={
+        <>
+          <Input text="max value:" value={maxValue.toString()} onChange={changeMaxValue}/>
+          <Input text="start value:" value={startValue.toString()} onChange={changeStartValue}/>
+        </>
+      }
+      doubleChild={
+        <Button
+          title="set"
+          onClick={() => {
+            setTrigger(false);
+          }}
+        />
+      }
+    />
+  ) : (
     <div className="appWrapper">
-      <CounterSett
-        firstChild={
-          <>
-            <Input text="max value:" />
-            <Input text="start value:" />
-          </>
-        }
-        doubleChild={<Button title="set" onClick={() => {}} />}
-      />
       <Counter1
-        firstChild={<div>1</div>}
+        firstChild={<div className={counterOne}>{counter1}</div>}
         doubleChild={
           <>
-            <Button title="inc" onClick={() => {}} />
-            <Button title="reset" onClick={() => {}} />
+            <Button title="inc" onClick={inc} />
+            <Button title="reset" onClick={res} />
+            <Button
+              title="set"
+              onClick={() => {
+                setTrigger(true);
+              }}
+            />
           </>
         }
       />

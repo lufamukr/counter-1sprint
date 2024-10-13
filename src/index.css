@@ -15,3 +15,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.counterOneRed {
+  color: red;
+}
+
+.counterOne {
+  color: black;
+}
+
+

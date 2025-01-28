@@ -5,13 +5,16 @@ type InputType = {
   text:string;
   value:string;
   onChange:(e:React.ChangeEvent<HTMLInputElement>) => void; 
+  gapo?: string;
+  redColor: string;
 }
 
 export const Input = (props:InputType) => {
+
   return(
-    <div className={st.cover}>
+    <div className={st.cover} style={{gap:`${props.gapo}`}}>
       <span className={st.span}>{props.text}</span>
-      <input type="number" className={st.input} value={props.value} onChange={props.onChange}/>
+      <input type="number" className={st.input + ' ' + st[`${props.redColor}`]} onChange={props.onChange} value={props.value} />
     </div>
   )
 }

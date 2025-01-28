@@ -1,68 +1,90 @@
-import React, { ChangeEvent, InputHTMLAttributes, useState } from "react";
+import React, { useState } from "react";
 import { Counter1 } from "./comp-ts/counter1/Counter1";
 import { CounterSett } from "./comp-ts/counterSett/CounterSett";
 import "./App.css";
 import { Input } from "./comp-ts/input/Input";
 import { Button } from "./comp-ts/button/Button";
-import { number } from "prop-types";
 
 function App() {
+
   const [trigger, setTrigger] = useState(false);
-  //Counter1 - start
-  let [counter1, setCounter1] = useState(0);
+  
+  const [maxValue, setMaxValue] = useState(5)
+  
+  const [startValue, setStartValue] = useState(0)
+
   const inc = () => {
-    setCounter1((prevCount) => prevCount + 1);
-    if (counter1 === 5) {
-      setCounter1(5);
-    }
-  };
+    setStartValue((prevValue:number) => prevValue === maxValue && maxValue !== 0 ? maxValue : prevValue + 1)
+  }
 
   const res = () => {
-    setCounter1(0);
+    setStartValue(0)
+    setMaxValue(0)
+    localStorage.clear()
   };
 
-  const counterOne = counter1 === 5 ? "counterOneRed" : "counterOne";
-
-  const [maxValue, setMaxValue] = useState(0)
-  const [startValue, setStartValue] = useState(0)
+  const counterOne = startValue >= maxValue ? "counterOneRed" : "counterOne";
+  const redNumber = startValue === maxValue && startValue !== 0 ? "redNumber" : "originalNum"
 
   const changeMaxValue = (e:React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value)
-    setMaxValue(value)
+    if(value < 0) {
+      console.log('max < 0')
+    } else {
+      setMaxValue(value)
+    }
   }
 
-  const changeStartValue = () => {
+  const changeStartValue = (e:React.ChangeEvent<HTMLInputElement>)  => {
+    const value = Number(e.target.value)
+    if(value > maxValue) {
+      return
+    } else
+    setStartValue(value)
+  }
 
+  const startValueFromLS = () => {
+    localStorage.setItem('start value', JSON.stringify(startValue))
+    localStorage.setItem('max value', JSON.stringify(maxValue))
+  }
+  const getStartValueFromLS = () => {
+    const value = localStorage.getItem('start value');
+    return value ? JSON.parse(value) : 0;
+  }
+
+  
+  const setFunc = () => {
+    setTrigger(false);
+    startValueFromLS()
   }
 
   return trigger ? (
     <CounterSett
       firstChild={
         <>
-          <Input text="max value:" value={maxValue.toString()} onChange={changeMaxValue}/>
-          <Input text="start value:" value={startValue.toString()} onChange={changeStartValue}/>
+          <Input text="max value:" value={maxValue.toString()} onChange={changeMaxValue} gapo="8px" redColor={counterOne}/>
+          <Input text="start value:" value={startValue.toString()} onChange={changeStartValue} redColor={counterOne}/>
         </>
       }
       doubleChild={
         <Button
           title="set"
-          onClick={() => {
-            setTrigger(false);
-          }}
+          onClick={setFunc}
         />
       }
     />
   ) : (
     <div className="appWrapper">
       <Counter1
-        firstChild={<div className={counterOne}>{counter1}</div>}
+        firstChild={<div className={redNumber}>{startValue}</div>}
         doubleChild={
           <>
-            <Button title="inc" onClick={inc} />
+            <Button title="inc" onClick={inc} isDisabled={startValue === maxValue && startValue !== 0 ? true : false}/>
             <Button title="reset" onClick={res} />
             <Button
               title="set"
               onClick={() => {
+                setStartValue(getStartValueFromLS())
                 setTrigger(true);
               }}
             />

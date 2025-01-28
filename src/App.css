@@ -6,3 +6,9 @@
   gap: 10px;
 }
 
+.redNumber {
+  color: #ff0000;
+}
+.originalNum {
+  color: inherit;
+}
